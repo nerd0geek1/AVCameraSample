@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730DC4A61C7082970018F39F /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730DC4A51C7082970018F39F /* Camera.swift */; };
 		73E3B1091C707F0200726BA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73E3B1081C707F0200726BA6 /* Assets.xcassets */; };
 		C9EA219457A136CC8290EC1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EA21B26381D27146A37B97 /* AppDelegate.swift */; };
 		C9EA2D9406F942268E347A7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EA2C79CF4A70E4D9F6D771 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		730DC4A51C7082970018F39F /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		73E3B0FE1C707F0200726BA6 /* AVCameraSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVCameraSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E3B1081C707F0200726BA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73E3B10D1C707F0200726BA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,6 +33,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		730DC4A41C70828C0018F39F /* av */ = {
+			isa = PBXGroup;
+			children = (
+				730DC4A51C7082970018F39F /* Camera.swift */,
+			);
+			path = av;
+			sourceTree = "<group>";
+		};
 		73E3B0F51C707F0200726BA6 = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				C9EA20D0C74A60866F8F22D6 /* application */,
+				730DC4A41C70828C0018F39F /* av */,
 				C9EA29CB4405EA66C7393705 /* viewcontroller */,
 			);
 			path = classes;
@@ -153,6 +164,7 @@
 			files = (
 				C9EA219457A136CC8290EC1C /* AppDelegate.swift in Sources */,
 				C9EA2D9406F942268E347A7F /* ViewController.swift in Sources */,
+				730DC4A61C7082970018F39F /* Camera.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
