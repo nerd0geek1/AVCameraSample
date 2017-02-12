@@ -125,6 +125,7 @@
 				TargetAttributes = {
 					73E3B0FD1C707F0200726BA6 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -262,6 +263,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nerd0geek1.AVCameraSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -275,6 +277,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nerd0geek1.AVCameraSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

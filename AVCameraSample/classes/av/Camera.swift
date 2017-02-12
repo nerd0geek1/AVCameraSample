@@ -11,14 +11,14 @@ import Foundation
 
 class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
 
-    static let sharedInstance: Camera = Camera()
+    static let shared: Camera = Camera()
 
     var didCaptureSampleBufferClosure: ((CMSampleBuffer) -> Void)?
 
     private let captureSession: AVCaptureSession = AVCaptureSession()
     private var device: AVCaptureDevice!
 
-    override private init() {
+    override fileprivate init() {
         super.init()
 
         setup()
@@ -36,7 +36,7 @@ class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
                 continue
             }
 
-            if device.position == .Front {
+            if device.position == .back {
                 self.device = device
                 break
             }
@@ -51,9 +51,9 @@ class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
             }
 
             let videoOutput: AVCaptureVideoDataOutput = AVCaptureVideoDataOutput()
-            videoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey : Int(kCVPixelFormatType_32BGRA)]
+            videoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as AnyHashable : Int(kCVPixelFormatType_32BGRA)]
 
-            let videoOutputQueue: dispatch_queue_t = dispatch_queue_create("AVCameraSample.Camera.videoOutputQueue", nil)
+            let videoOutputQueue: DispatchQueue = DispatchQueue(label: "AVCameraSample.Camera.videoOutputQueue", attributes: [])
             videoOutput.setSampleBufferDelegate(self, queue: videoOutputQueue)
             if captureSession.canAddOutput(videoOutput) {
                 captureSession.addOutput(videoOutput)
@@ -77,7 +77,7 @@ class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
                 }
             }
 
-            videoConnection?.videoOrientation = .Portrait
+            videoConnection?.videoOrientation = .portrait
 
             captureSession.commitConfiguration()
             captureSession.startRunning()
@@ -86,7 +86,7 @@ class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         }
     }
 
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
         didCaptureSampleBufferClosure?(sampleBuffer)
     }
 }
